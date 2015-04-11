@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+            .container{
+            	display:flex;
+            	flex-flow:row wrap;
+            	text-align: center;
+            }
+            .container > * {
+            	padding:8px;
+            	flex:1 100%;
+            }
+            header{
+            	order:1;
+            	background: tomato;
+            }
+            .content{
+            	order:3;
+            	background: deepskyblue;
+            	flex:3 0px;
+            }
+            .aside{
+            	display:flex;
+            }
+            .aside span{
+            	margin:auto;
+            }
+            .aside1{
+            	order:2;
+            	background: gold;
+            	flex:1 auto;
+            }
+            .aside2{
+            	order:4;
+            	background: hotpink;
+            	flex:1 auto;
+            }
+            footer{
+            	order:5;
+            	background: lightgreen;
+            }
+		</style>
+	</head>
+	<body>
+		<div class = "container">
+			<header>header</header>
+			<div class = 'content'>
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+			</div>
+			<div class = "aside aside1"><span>aside1</span></div>
+			<div class = "aside aside2"><span>aside2</span></div>
+			<footer>footer</footer>
+		</div>
+	</body>
+</html>

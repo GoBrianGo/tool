@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Promise</title> 
+
+</head> 
+<body > 
+<div id = 'box' onclick="getText('story.json')">获取文本</div>
+<p id = 'content'></p>
+<span id = 'end'></span>
+<script language="javascript" type="text/javascript">
+    
+function get(url) {
+	var requestPromise = new Promise(function(resolve, reject) {
+    var req = new XMLHttpRequest();
+    req.open('get', url);
+    req.onload = function() {
+      if (req.readyState == 4) {
+         resolve(req.response);
+      }
+      else {
+        reject(Error(req.statusText));
+      }
+    };
+    req.onerror = function() {
+      reject(Error("Network Error"));
+    };
+    req.send();
+    });
+    return requestPromise;
+}
+function getText(url){
+    get(url).then(function(data){
+        console.log(data);
+        content.innerHTML = data;
+        return get('http://www.baidu.com').then(function(data){
+        	console.log(data);
+        });
+    }).then(function(){
+    	end.innerHTML = 'Loading Finished !';
+    });
+}
+function success(data){
+	console.log(data);
+}
+</script>
+</body>
+</html>

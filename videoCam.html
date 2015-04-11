@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    
+  </head>
+  <body >
+    <div onclick = "openCam()">打开摄像头</div>
+    <div onclick = 'drawImage()'>拍照</div>
+    <canvas id = 'canvas'></canvas>
+    <video src="" style = 'width:160px;height:120px;'></video>
+    <script> 
+        var context = canvas.getContext('2d');
+        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+        window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+        var video  = document.querySelector('video');
+        console.log(video);
+        function openCam(){
+          console.log(video);
+          navigator.webkitGetUserMedia({video:true},function(stream){
+            if (video.mozSrcObject !== undefined) {
+            video.mozSrcObject = stream;
+            } 
+            else {
+            video.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+             }
+            video.play();
+          }, function(error){console.log(error)});
+        }
+        function drawImage(){
+           context.drawImage(video, 0, 0, 160, 120);
+        }
+      
+    </script>
+   
+  </body>
+</html>
