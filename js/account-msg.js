@@ -55,9 +55,9 @@ WebApp.on('accountMsg.loaded', function(data) {
 
 				if (status == CONSTANT.AJAX_SUCCESS) {
 					headerText.innerHTML = '设置用户信息';
-					window.location.href = '#/personal-msg/' + accountName;
 				}
 			});
+			window.location.href = '#/personal-msg/' + accountName;
 
 		},
 
