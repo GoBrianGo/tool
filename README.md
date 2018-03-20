@@ -1,4 +1,4 @@
-jsut some demo <br>
+jsut some demo .<br>
 1、css3 flex-box属性的demo<br>
 2、html5本地储存indexedDB的demo<br>
 3、异步编程的promise模式的demo<br>
